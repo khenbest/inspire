@@ -6,9 +6,17 @@ export default class Todo {
         this.description = data.description
     }
     makeTemplate() {
-        return `<p>${this.description}</p>
-        <button onclick="toggle!@#!@#">mark as done fn</button>
-        <button onclick="delete(0">delete</button>`
+        if (this.completed == true) {
+            return `<p><del>${this.description}</del></p>
+        <button onclick="app.controllers.todoController.toggleTodoStatus('${this._id}')">To-Done!</button>
+        <button onclick="app.controllers.todoController.removeTodo('${this._id}')>Delete</button>`
+        }
+        else {
+            return `<p>${this.description}</p>
+        <button onclick="app.controllers.todoController.toggleTodoStatus('${this._id}')">To-Done!</button>
+        <button onclick="app.controllers.todoController.removeTodo('${this._id}')>Delete</button>`
+        }
+
 
     }
 }
