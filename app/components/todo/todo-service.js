@@ -67,6 +67,10 @@ export default class TodoService {
 	removeTodo(todoId) {
 		// This one is on you to write.... 
 		// The http method is delete at the todoId
+		todoApi.delete(todoId)
+			.then(res => {
+				this.getTodos()
+			})
 	}
 
 }
